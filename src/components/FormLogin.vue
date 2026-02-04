@@ -60,7 +60,7 @@ const handleSubmit = async () => {
 
   const separator = " x";
   // 1-770-736-8031 - correct format.
-  const user = users.value.filter((user) => user.username === username.value && user.phone.slice(0, user.phone.indexOf(separator)) === phone.value);
+  const user = users.value.filter((user) => user.username === username.value && user.phone.slice(0, user.phone.indexOf(separator)).replace(/-/g, "") === phone.value);
 
   if (user && user.length > 0) {
     const userId = user[0]?.id;
